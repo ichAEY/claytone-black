@@ -1,26 +1,28 @@
 # ClayTone Black
 
-Dark-theme variant of the current production site for Nonna / ClayTone.
+Самостоятельная тёмная версия текущего сайта Нонны / ClayTone.
 
-## What stays identical
+## Что сохранено без изменений
 
-- current Nonna content and master data;
-- all services, prices and durations;
-- portfolio and promotion media;
-- Yclients booking links and contact actions;
-- mobile and desktop composition;
-- gallery, reviews, animations and responsive behavior.
+- актуальные данные Нонны;
+- все услуги, цены и длительность процедур;
+- фотографии портфолио и акций;
+- ссылки Yclients и способы связи;
+- мобильная и десктопная структура;
+- галерея, отзывы, анимации и адаптивное поведение.
 
-## What changes
+## Что изменено
 
-Only the visual layer. ClayTone Black uses a graphite background, warm near-black surfaces, soft ivory typography and a restrained clay/rose accent for actions and highlights.
+Только визуальная система. Основная палитра: глубокий графитовый фон, тёплые почти чёрные поверхности, мягкий светлый текст и сдержанный глиняно-розовый акцент для CTA и важных деталей.
 
-## Source snapshot
+Главный слой темы находится в `app/dark-theme.css` и подключается последним, поэтому исходная структура сайта остаётся совместимой с текущим шаблоном ClayTone.
 
-The build is pinned to production source `ichAEY/claytone-current` at commit `ce1bd42b44e76e1851af9e069c4cbcf06fc8eac2` so this version cannot drift when the main Nonna site changes later.
+## Исходная версия
 
-## Deployment
+В репозиторий целиком импортирован снимок рабочего сайта `ichAEY/claytone-current` на коммите `ce1bd42b44e76e1851af9e069c4cbcf06fc8eac2`. Код и фотографии теперь находятся непосредственно в `claytone-black` и не зависят от другого репозитория при сборке.
 
-GitHub Actions rebuilds the production source, applies `dark-theme.css`, adjusts asset paths for this repository and deploys the static export to GitHub Pages after changes land on `main`.
+## Публикация
 
-Expected project Pages URL: `https://ichaey.github.io/claytone-black/`.
+GitHub Actions собирает сайт прямо из этого репозитория, применяет централизованные данные Нонны, корректирует пути ресурсов для project Pages и публикует статический Next.js export после попадания изменений в `main`.
+
+Адрес GitHub Pages после публикации: `https://ichaey.github.io/claytone-black/`.
