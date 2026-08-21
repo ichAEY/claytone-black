@@ -1,46 +1,62 @@
 /*
- * ClayTone Black
- * Dark visual layer for the current Nonna / ClayTone production site.
- * Structure, content, pricing and interactions stay untouched.
+ * ClayTone dark wine theme
+ * The site stays structurally identical to the current Nonna production site.
+ * This layer changes only the visual system: deep wine backgrounds, warm ivory
+ * typography, dusty rose accents and clearly separated section tones.
  */
 
 :root {
   color-scheme: dark;
-  --black-bg: #0d0f10;
-  --black-surface: #131516;
-  --black-surface-2: #181a1c;
-  --black-surface-warm: #1b1716;
-  --black-text: #f3eee8;
-  --black-muted: #aaa39d;
-  --black-faint: #7f7974;
-  --black-accent: #c99a86;
-  --black-accent-strong: #dda993;
-  --black-line: rgba(255, 255, 255, .11);
-  --black-line-strong: rgba(255, 255, 255, .17);
+
+  /* Historical ClayTone reference: the first Nonna site used #4f3238 as wine. */
+  --ct-wine: #4f3238;
+  --ct-wine-deep: #321d24;
+  --ct-wine-dark: #2a191f;
+  --ct-wine-mid: #5a3740;
+  --ct-wine-soft: #68444b;
+  --ct-plum: #3a252c;
+
+  --ct-text: #f5ece8;
+  --ct-text-soft: #d8c7c3;
+  --ct-muted: #bca7a4;
+  --ct-faint: #9b8381;
+
+  --ct-accent: #d6a39d;
+  --ct-accent-strong: #ebc3bc;
+  --ct-accent-soft: #c38e89;
+  --ct-cream: #efe0da;
+
+  --ct-line: rgba(245, 236, 232, .12);
+  --ct-line-strong: rgba(245, 236, 232, .20);
+  --ct-shadow: rgba(34, 17, 23, .28);
 }
 
 html,
 body,
 .site-root,
 .mct-mobile {
-  background: var(--black-bg) !important;
-  color: var(--black-text) !important;
+  background: var(--ct-wine-dark) !important;
+  color: var(--ct-text) !important;
+}
+
+body {
+  color: var(--ct-text) !important;
 }
 
 .mct-mobile {
-  --ink: var(--black-text) !important;
-  --soft: var(--black-muted) !important;
-  --paper: var(--black-bg) !important;
-  --taupe: var(--black-accent) !important;
-  --taupe-dark: var(--black-accent-strong) !important;
-  --line: var(--black-line) !important;
+  --ink: var(--ct-text) !important;
+  --soft: var(--ct-muted) !important;
+  --paper: var(--ct-wine-dark) !important;
+  --taupe: var(--ct-accent) !important;
+  --taupe-dark: var(--ct-accent-soft) !important;
+  --line: var(--ct-line) !important;
 }
 
-/* Intro + navigation */
+/* ---------- Intro + header ---------- */
 .mct-intro {
   background:
-    radial-gradient(circle at 50% 42%, rgba(201, 154, 134, .16), transparent 38%),
-    #0c0e0f !important;
+    radial-gradient(circle at 50% 42%, rgba(235, 195, 188, .13), transparent 39%),
+    linear-gradient(145deg, #5a3740 0%, #452a32 52%, #321d24 100%) !important;
 }
 
 .mct-intro-mark,
@@ -50,7 +66,7 @@ body,
 .dct-navigation a,
 .dct-top-phone,
 .dct-top-icon {
-  color: var(--black-text) !important;
+  color: var(--ct-text) !important;
 }
 
 .mct-intro-mark small,
@@ -58,32 +74,51 @@ body,
 .mct-hero-meta,
 .mct-hero-meta > span,
 .dct-top-phone small {
-  color: var(--black-muted) !important;
+  color: var(--ct-text-soft) !important;
 }
 
 .mct-intro-mark i {
-  background: rgba(221, 169, 147, .44) !important;
+  background: rgba(235, 195, 188, .54) !important;
 }
 
 .mct-menu-panel {
-  border-color: var(--black-line-strong) !important;
-  background: rgba(22, 24, 25, .94) !important;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, .46) !important;
+  border-color: var(--ct-line-strong) !important;
+  background: rgba(66, 39, 47, .97) !important;
+  box-shadow: 0 24px 60px rgba(38, 20, 26, .34) !important;
 }
 
 .mct-menu-panel a {
-  border-color: var(--black-line) !important;
+  border-color: var(--ct-line) !important;
 }
 
-/* Hero */
+/* ---------- Hero ---------- */
+.mct-hero,
+.mct-hero > .mct-shell,
+.mct-hero-content,
+.mct-hero-visual,
+.mct-hero-bottom,
+.mct-topbar {
+  color: var(--ct-text) !important;
+}
+
 .mct-hero {
   background:
-    radial-gradient(circle at 76% 46%, rgba(201, 154, 134, .12), transparent 38%),
-    linear-gradient(180deg, #111315 0%, #0f1112 100%) !important;
+    radial-gradient(circle at 79% 44%, rgba(217, 162, 155, .16), transparent 34%),
+    radial-gradient(circle at 18% 92%, rgba(105, 65, 75, .26), transparent 40%),
+    linear-gradient(145deg, #51313a 0%, #452932 48%, #382129 100%) !important;
+}
+
+.mct-hero > .mct-shell,
+.mct-hero-content,
+.mct-hero-visual,
+.mct-hero-bottom,
+.mct-topbar,
+.mct-palette-stage {
+  background: transparent !important;
 }
 
 .mct-topbar {
-  border-color: var(--black-line) !important;
+  border-color: rgba(245, 236, 232, .16) !important;
 }
 
 .mct-hero h1,
@@ -96,11 +131,11 @@ body,
 .mct-reviews h2,
 .mct-visit h2,
 .mct-visit h3 {
-  color: var(--black-text) !important;
+  color: var(--ct-text) !important;
 }
 
 .mct-hero h1 em {
-  color: #d8d0ca !important;
+  color: #e2c5c0 !important;
 }
 
 .mct-hero-copy,
@@ -109,25 +144,27 @@ body,
 .mct-service-description,
 .mct-about-copy,
 .mct-visit-booking > p {
-  color: var(--black-muted) !important;
+  color: var(--ct-text-soft) !important;
 }
 
 .mct-eyebrow,
 .mct-section-kicker {
-  color: var(--black-accent) !important;
+  color: #ddb0aa !important;
 }
 
+/* Primary action: deliberately light against the dark wine hero. */
 .mct-main-cta,
 .mct-final-cta {
-  border-color: transparent !important;
-  background: linear-gradient(135deg, #d3a18c, #bd8875) !important;
-  color: #171313 !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, .34), 0 0 0 1px rgba(255,255,255,.04) inset !important;
+  border: 1px solid rgba(255, 255, 255, .13) !important;
+  background: linear-gradient(135deg, #ead0ca 0%, #d7aaa3 100%) !important;
+  color: #482831 !important;
+  box-shadow: 0 12px 28px rgba(40, 20, 26, .20), 0 1px 0 rgba(255,255,255,.24) inset !important;
 }
 
 .mct-main-cta:hover,
 .mct-final-cta:hover {
-  background: linear-gradient(135deg, #dfad97, #c9937e) !important;
+  background: linear-gradient(135deg, #f0dbd6 0%, #dfb7b0 100%) !important;
+  color: #3d222a !important;
 }
 
 .mct-quiet-link,
@@ -136,31 +173,39 @@ body,
 .mct-more-services,
 .mct-review-summary,
 .mct-visit a:not(.mct-final-cta) {
-  color: #d8d0ca !important;
+  color: var(--ct-text-soft) !important;
 }
 
 .mct-stats {
-  border-color: var(--black-line) !important;
-  background: rgba(255, 255, 255, .035) !important;
-  box-shadow: none !important;
+  border-color: rgba(245, 236, 232, .16) !important;
+  background: rgba(92, 55, 64, .42) !important;
+  box-shadow: 0 12px 30px rgba(39, 20, 26, .10) !important;
+  backdrop-filter: blur(14px) !important;
 }
 
-.mct-stat {
-  border-color: var(--black-line) !important;
+.mct-stat,
+.mct-stat + .mct-stat::before {
+  border-color: rgba(245, 236, 232, .14) !important;
 }
 
 .mct-stat span {
-  color: var(--black-muted) !important;
+  color: #cdb9b5 !important;
 }
 
 .mct-stat-star {
-  color: var(--black-accent-strong) !important;
+  color: #efc6bf !important;
 }
 
-/* Portfolio */
+/* ---------- Portfolio ---------- */
 .mct-section,
 #mobile-portfolio {
-  background: var(--black-bg) !important;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(108, 68, 77, .12), transparent 28%),
+    #2f1d23 !important;
+}
+
+.mct-section-head h2 {
+  color: var(--ct-text) !important;
 }
 
 .mct-ba-card,
@@ -172,27 +217,35 @@ body,
 .dct-gallery-module .dct-film-frame-3,
 .dct-gallery-module .dct-film-frame-4,
 .dct-gallery-module .dct-film-frame-5 {
-  border-color: var(--black-line-strong) !important;
-  background: #1a1c1d !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, .32) !important;
+  border-color: rgba(245, 236, 232, .14) !important;
+  background: #40282f !important;
+  box-shadow: 0 16px 36px rgba(35, 18, 23, .22) !important;
 }
 
 .mct-gallery-button {
-  border-color: var(--black-line-strong) !important;
-  background: rgba(255,255,255,.045) !important;
+  border-color: rgba(235, 195, 188, .32) !important;
+  background: rgba(105, 65, 75, .22) !important;
+  color: #ead5d0 !important;
 }
 
-/* Prices */
+.mct-gallery-button:hover,
+.mct-gallery-button:focus-visible {
+  border-color: rgba(235, 195, 188, .50) !important;
+  background: rgba(121, 75, 86, .36) !important;
+}
+
+/* ---------- Prices ---------- */
 .mct-prices {
-  border-color: var(--black-line) !important;
-  background: #111314 !important;
+  border-color: var(--ct-line) !important;
+  background:
+    linear-gradient(180deg, #3b252c 0%, #372229 100%) !important;
 }
 
 .mct-service-list,
 .mct-service-row,
 .mct-service-action,
 .mct-category-tabs {
-  border-color: var(--black-line) !important;
+  border-color: rgba(245, 236, 232, .12) !important;
 }
 
 .mct-service-row,
@@ -200,230 +253,256 @@ body,
 .mct-service-action,
 .mct-service-action b,
 .mct-category-tabs button {
-  color: var(--black-text) !important;
+  color: var(--ct-text) !important;
 }
 
 .mct-service-row small,
 .mct-service-action span,
 .mct-category-tabs button:not(.is-active) {
-  color: var(--black-muted) !important;
+  color: var(--ct-muted) !important;
+}
+
+.mct-category-tabs button {
+  background: transparent !important;
 }
 
 .mct-category-tabs button.is-active {
-  border-color: var(--black-line-strong) !important;
-  background: rgba(201, 154, 134, .13) !important;
-  color: #f6e6df !important;
+  border-color: rgba(235, 195, 188, .26) !important;
+  background: #5b3841 !important;
+  color: #f5e9e5 !important;
+}
+
+.mct-service-row:hover {
+  background: rgba(114, 70, 80, .10) !important;
 }
 
 .mct-prices.is-visible .mct-service-action b {
   color: transparent !important;
-  background: linear-gradient(105deg, #d2a08b 0 43%, #edc3b2 47%, #fff1e9 50%, #edc3b2 53%, #d2a08b 57% 100%) !important;
+  background: linear-gradient(105deg, #ddb0aa 0 43%, #efc9c2 47%, #fff0eb 50%, #efc9c2 53%, #ddb0aa 57% 100%) !important;
   background-position: var(--mct-price-shine-position) 50% !important;
   background-size: 260% 100% !important;
   background-clip: text !important;
   -webkit-background-clip: text !important;
 }
 
-/* Promotions */
+/* ---------- Promotions ---------- */
 .mct-promotions {
-  border-color: var(--black-line) !important;
-  background: #171819 !important;
+  border-color: rgba(245, 236, 232, .13) !important;
+  background:
+    radial-gradient(circle at 92% 6%, rgba(222, 166, 160, .11), transparent 32%),
+    #4b2e36 !important;
 }
 
 .mct-promotion-card {
-  border-color: var(--black-line-strong) !important;
-  background: #1d1f20 !important;
-  color: var(--black-text) !important;
-  box-shadow: 0 18px 42px rgba(0,0,0,.28) !important;
+  border-color: rgba(245, 236, 232, .15) !important;
+  background: #5a3740 !important;
+  color: var(--ct-text) !important;
+  box-shadow: 0 18px 38px rgba(39, 20, 26, .16) !important;
 }
 
 .mct-promotion-card:hover,
 .mct-promotion-card:focus-within {
-  border-color: rgba(201,154,134,.34) !important;
-  box-shadow: 0 24px 56px rgba(0,0,0,.38) !important;
+  border-color: rgba(235, 195, 188, .34) !important;
+  box-shadow: 0 22px 46px rgba(39, 20, 26, .24) !important;
 }
 
 .mct-promotion-card p,
 .mct-promotion-card span,
 .mct-promotion-card small {
-  color: var(--black-muted) !important;
+  color: #d2bfbb !important;
 }
 
 .mct-promotion-card strong,
 .mct-promotion-card h3 {
-  color: var(--black-text) !important;
+  color: #f8efec !important;
 }
 
-/* About */
+/* ---------- About ---------- */
 .mct-about {
   background:
-    radial-gradient(circle at 92% 5%, rgba(201,154,134,.10), transparent 31%),
-    linear-gradient(180deg, #111314 0%, #151313 100%) !important;
+    radial-gradient(circle at 92% 5%, rgba(210, 153, 148, .10), transparent 31%),
+    linear-gradient(180deg, #342128 0%, #3a242b 100%) !important;
 }
 
 .mct-about-monogram {
-  color: rgba(221, 169, 147, .38) !important;
+  color: rgba(235, 195, 188, .34) !important;
 }
 
 .mct-about-list,
 .mct-about-list li {
-  border-color: var(--black-line) !important;
-  color: #ddd6d0 !important;
+  border-color: rgba(245, 236, 232, .12) !important;
+  color: #e5d7d3 !important;
 }
 
 .mct-amenities {
-  border-color: var(--black-line-strong) !important;
-  background: rgba(255,255,255,.035) !important;
-  box-shadow: none !important;
+  border-color: rgba(245, 236, 232, .15) !important;
+  background: #472c34 !important;
+  box-shadow: 0 14px 30px rgba(39, 20, 26, .12) !important;
 }
 
 .mct-amenities-grid article {
-  border-color: var(--black-line) !important;
+  border-color: rgba(245, 236, 232, .12) !important;
 }
 
 .mct-amenities-grid strong {
-  color: var(--black-text) !important;
+  color: var(--ct-text) !important;
 }
 
 .mct-amenities-grid span {
-  color: var(--black-muted) !important;
+  color: var(--ct-muted) !important;
 }
 
-/* Reviews */
+/* ---------- Reviews ---------- */
 .mct-reviews {
-  background: #1a1615 !important;
+  background:
+    radial-gradient(circle at 14% 100%, rgba(227, 176, 169, .09), transparent 34%),
+    #53343b !important;
 }
 
 .mct-review-summary {
-  border-color: var(--black-line) !important;
+  border-color: rgba(245, 236, 232, .15) !important;
 }
 
 .mct-review-summary strong,
 .mct-review-card strong,
 .mct-review-card p {
-  color: var(--black-text) !important;
+  color: #f8eeeb !important;
 }
 
 .mct-review-summary span,
 .mct-review-card span,
 .dct-review-drag-hint {
-  color: var(--black-muted) !important;
+  color: #d3bfbb !important;
 }
 
 .mct-review-card {
-  border-color: var(--black-line-strong) !important;
-  background: #211d1c !important;
-  box-shadow: 0 12px 28px rgba(0,0,0,.26) !important;
+  border-color: rgba(245, 236, 232, .14) !important;
+  background: #633f47 !important;
+  box-shadow: 0 12px 28px rgba(40, 20, 27, .18) !important;
 }
 
 .dct-review-controls button {
-  border-color: var(--black-line-strong) !important;
-  background: rgba(255,255,255,.05) !important;
-  color: var(--black-text) !important;
+  border-color: rgba(245, 236, 232, .18) !important;
+  background: #68444b !important;
+  color: #f7ece8 !important;
 }
 
-/* Visit / booking */
+.dct-review-controls button:hover,
+.dct-review-controls button:focus-visible {
+  background: #76505a !important;
+}
+
+/* ---------- Visit / booking ---------- */
 .mct-visit {
   background:
-    radial-gradient(circle at 95% 0%, rgba(201,154,134,.13), transparent 34%),
-    linear-gradient(180deg, #101213 0%, #0c0e0f 100%) !important;
+    radial-gradient(circle at 94% 0%, rgba(211, 157, 150, .12), transparent 33%),
+    linear-gradient(180deg, #321f26 0%, #2b1a20 100%) !important;
 }
 
 .mct-visit-booking {
-  border-color: var(--black-line-strong) !important;
-  background: rgba(255,255,255,.035) !important;
-  box-shadow: 0 18px 44px rgba(0,0,0,.24) !important;
+  border-color: rgba(245, 236, 232, .14) !important;
+  background: #3d272e !important;
+  box-shadow: 0 18px 38px rgba(38, 19, 25, .16) !important;
 }
 
 .mct-open-status {
-  border-color: var(--black-line-strong) !important;
-  background: rgba(255,255,255,.045) !important;
-  color: #d9d2cc !important;
+  border-color: rgba(245, 236, 232, .16) !important;
+  background: #50313a !important;
+  color: #dbc8c4 !important;
 }
 
 .mct-open-status.is-open {
-  color: #a9d7b3 !important;
+  color: #b9dbbe !important;
 }
 
 .mct-final-contact-grid a,
 .mct-contact-card,
 .mct-contact-item {
-  border-color: var(--black-line-strong) !important;
-  background: rgba(255,255,255,.04) !important;
-  color: var(--black-text) !important;
+  border-color: rgba(245, 236, 232, .14) !important;
+  background: #432a31 !important;
+  color: var(--ct-text) !important;
   box-shadow: none !important;
+}
+
+.mct-final-contact-grid a:hover,
+.mct-contact-card:hover,
+.mct-contact-item:hover {
+  background: #4e3038 !important;
 }
 
 .mct-contact-copy strong,
 .mct-visit-address {
-  color: var(--black-text) !important;
+  color: var(--ct-text) !important;
 }
 
 .mct-contact-copy small,
 .mct-visit-address span {
-  color: var(--black-muted) !important;
+  color: var(--ct-muted) !important;
 }
 
 html body .mct-visit-details {
-  border-color: var(--black-line) !important;
+  border-color: rgba(245, 236, 232, .12) !important;
   background: transparent !important;
 }
 
+/* ---------- Footer ---------- */
 .dct-footer {
-  border-top: 1px solid var(--black-line) !important;
-  background: #090b0c !important;
-  color: var(--black-text) !important;
+  border-top: 1px solid rgba(245, 236, 232, .11) !important;
+  background: #28171d !important;
+  color: var(--ct-text) !important;
 }
 
 .dct-footer a {
-  color: var(--black-text) !important;
+  color: var(--ct-text) !important;
 }
 
 .dct-footer span {
-  color: var(--black-muted) !important;
+  color: var(--ct-faint) !important;
 }
 
-/* Desktop contact pills are restyled here because refinement CSS loads before this file. */
+/* Desktop contact controls load from refinement CSS before this file. */
 @media (min-width: 768px) {
   .dct-top-phone > svg,
   .dct-top-phone strong {
-    color: var(--black-text) !important;
+    color: var(--ct-text) !important;
     stroke: currentColor !important;
   }
 
   .dct-top-icon {
-    border-color: var(--black-line-strong) !important;
-    background: rgba(255,255,255,.045) !important;
+    border-color: rgba(245, 236, 232, .16) !important;
+    background: rgba(107, 65, 75, .42) !important;
+    color: var(--ct-text) !important;
     box-shadow: none !important;
   }
 
   .dct-top-icon:hover,
   .dct-top-icon:focus-visible {
-    background: var(--black-accent) !important;
-    color: #171313 !important;
+    border-color: rgba(235, 195, 188, .42) !important;
+    background: #d7aaa3 !important;
+    color: #43242c !important;
   }
 
   .mct-palette-set::after {
-    background: radial-gradient(ellipse, rgba(0,0,0,.44), transparent 69%) !important;
+    background: radial-gradient(ellipse, rgba(39, 20, 26, .34), transparent 69%) !important;
   }
 }
 
-/* Native overlays */
+/* Native gallery overlays stay dark wine rather than neutral black. */
 .mct-gallery-overlay,
 .mct-lightbox,
 .mct-custom-lightbox {
-  background: rgba(5, 6, 7, .94) !important;
+  background: rgba(43, 24, 31, .95) !important;
 }
 
 .mct-gallery-overlay button,
 .mct-lightbox button,
 .mct-custom-lightbox button {
-  border-color: rgba(255,255,255,.22) !important;
-  background: rgba(255,255,255,.08) !important;
-  color: #fff !important;
+  border-color: rgba(245,236,232,.25) !important;
+  background: rgba(103, 61, 72, .70) !important;
+  color: #fff4ef !important;
 }
 
 ::selection {
-  background: rgba(201,154,134,.34);
-  color: #fff7f2;
+  background: #8a5963;
+  color: #fff7f3;
 }
