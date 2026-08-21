@@ -17,14 +17,29 @@ function walk(dir, visitor) {
 
 const layoutPath = path.join(siteDir, "app", "layout.tsx");
 let layout = fs.readFileSync(layoutPath, "utf8");
-if (!layout.includes('import "./dark-theme.css";')) {
+let layoutChanged = false;
+
+const darkImport = 'import "./dark-theme.css";';
+const polishImport = 'import "./dark-theme-polish.css";';
+
+if (!layout.includes(darkImport)) {
   const anchor = 'import "./android-scroll-safety.css";';
   if (!layout.includes(anchor)) {
     throw new Error("Could not find the final production CSS import in app/layout.tsx");
   }
-  layout = layout.replace(anchor, `${anchor}\nimport "./dark-theme.css";`);
-  fs.writeFileSync(layoutPath, layout);
+  layout = layout.replace(anchor, `${anchor}\n${darkImport}`);
+  layoutChanged = true;
 }
+
+if (!layout.includes(polishImport)) {
+  if (!layout.includes(darkImport)) {
+    throw new Error("Could not find dark-theme.css import in app/layout.tsx");
+  }
+  layout = layout.replace(darkImport, `${darkImport}\n${polishImport}`);
+  layoutChanged = true;
+}
+
+if (layoutChanged) fs.writeFileSync(layoutPath, layout);
 
 const nextConfigPath = path.join(siteDir, "next.config.ts");
 const nextConfig = `import type { NextConfig } from "next";\n\nconst basePath = ${JSON.stringify(basePath)};\n\nconst nextConfig: NextConfig = {\n  output: "export",\n  trailingSlash: true,\n  images: { unoptimized: true },\n  ...(basePath ? { basePath, assetPrefix: basePath } : {}),\n};\n\nexport default nextConfig;\n`;
@@ -36,7 +51,7 @@ if (basePath) {
 
   walk(appDir, (filePath) => {
     if (!textExtensions.has(path.extname(filePath))) return;
-    if (filePath.endsWith("dark-theme.css")) return;
+    if (filePath.endsWith("dark-theme.css") || filePath.endsWith("dark-theme-polish.css")) return;
 
     const original = fs.readFileSync(filePath, "utf8");
     let updated = original
