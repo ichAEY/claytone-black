@@ -6,10 +6,15 @@
 }
 
 /* Shared: about-card and amenities should read as intentional inner surfaces. */
-.mct-about-card,
-.mct-amenities {
+.mct-about-card {
   border: 1px solid rgba(255, 239, 234, .16) !important;
   background: linear-gradient(150deg, #674852 0%, #583a43 100%) !important;
+  box-shadow: none !important;
+}
+
+.mct-amenities {
+  border: 1px solid rgba(255, 239, 234, .16) !important;
+  background: linear-gradient(150deg, #593943 0%, #4d3039 100%) !important;
   box-shadow: none !important;
 }
 
@@ -29,6 +34,20 @@
 
 .mct-amenities-grid strong {
   color: #fff1ed !important;
+}
+
+/* Keep the amenities kicker in the same dusty-rose family as other section labels. */
+.mct-amenities-head .mct-section-kicker {
+  color: #ddb0aa !important;
+  -webkit-text-fill-color: #ddb0aa !important;
+  background: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+}
+
+/* Promotion benefit pills: light surface, deliberately dark copy. */
+.mct-promotion-benefit {
+  color: #211518 !important;
 }
 
 /* Reviews: clearer, less muddy cards. */
@@ -61,16 +80,24 @@
   color: #f4c8c0 !important;
 }
 
-/* Mobile promotions: no light strip under the carousel; action is clearly visible. */
+/* Mobile final tone balance. */
 @media (max-width: 767px) {
+  /* Services/prices: only a tiny lift, not a redesign. */
+  .mct-prices {
+    background:
+      radial-gradient(circle at -6% 26%, rgba(246, 196, 186, .045), transparent 44%),
+      linear-gradient(180deg, #4d333b 0%, #442b32 100%) !important;
+  }
+
   .mct-promotions,
   .mct-promotions .mct-shell,
   .mct-promotion-pagination {
     background: transparent !important;
   }
 
+  /* Promotions: slightly darker than the previous version. */
   .mct-promotions {
-    background: linear-gradient(145deg, #5a3942 0%, #4d3039 100%) !important;
+    background: linear-gradient(145deg, #53353e 0%, #472b33 100%) !important;
   }
 
   .mct-promotion-list {
@@ -81,6 +108,10 @@
     color: #fff7f3 !important;
     opacity: 1 !important;
     text-shadow: none !important;
+  }
+
+  .mct-promotion-benefit {
+    color: #211518 !important;
   }
 
   .mct-promotion-pagination {
@@ -99,10 +130,14 @@
     box-shadow: 0 0 0 1px rgba(255,255,255,.06) !important;
   }
 
-  /* Keep the inner about/amenities surfaces distinct on phone too. */
-  .mct-about-card,
-  .mct-amenities {
+  /* About card remains distinct; amenities become a touch darker. */
+  .mct-about-card {
     background: linear-gradient(150deg, #62444d 0%, #543840 100%) !important;
+  }
+
+  .mct-amenities {
+    background: linear-gradient(150deg, #51343c 0%, #452b32 100%) !important;
+    border-color: rgba(255, 239, 234, .15) !important;
   }
 
   .mct-about-experience {
@@ -129,8 +164,15 @@
 
 /* Desktop-specific cleanup. */
 @media (min-width: 768px) {
-  /* Top row: left brand remains light; controls over the bright portrait become dark. */
-  .dct-navigation a,
+  /* Header split: first three nav items sit over wine and stay light; last two sit over the bright portrait and stay dark. */
+  .dct-navigation a:nth-child(1),
+  .dct-navigation a:nth-child(2),
+  .dct-navigation a:nth-child(3) {
+    color: #f7efec !important;
+  }
+
+  .dct-navigation a:nth-child(4),
+  .dct-navigation a:nth-child(5),
   .dct-top-phone,
   .dct-top-phone small,
   .dct-top-phone strong,
@@ -143,11 +185,11 @@
     stroke: currentColor !important;
   }
 
-  /* Keep portfolio background, remove the heavy shadows introduced in the previous pass. */
+  /* Portfolio: keep the accepted background, make the upper-left glow quieter. */
   #mobile-portfolio,
   .mct-section#mobile-portfolio {
     background:
-      radial-gradient(circle at 7% 10%, rgba(232, 175, 166, .12), transparent 32%),
+      radial-gradient(circle at 7% 10%, rgba(232, 175, 166, .065), transparent 35%),
       linear-gradient(145deg, #4a3038 0%, #402831 100%) !important;
   }
 
@@ -164,10 +206,11 @@
     filter: none !important;
   }
 
-  /* Services/prices: subtle light only; one continuous surface throughout the list. */
+  /* Services/prices: dim the left glow and add a broad, low-intensity lower-right wash. */
   .mct-prices {
     background:
-      radial-gradient(circle at -6% 26%, rgba(246, 196, 186, .12), transparent 42%),
+      radial-gradient(circle at -8% 25%, rgba(246, 196, 186, .075), transparent 45%),
+      radial-gradient(circle at 92% 88%, rgba(168, 105, 119, .075), transparent 36%),
       linear-gradient(180deg, #493039 0%, #402831 100%) !important;
   }
 
@@ -195,11 +238,35 @@
     text-shadow: none !important;
   }
 
-  /* Inner surfaces in About are deliberately different from the section background. */
-  .mct-about-card,
-  .mct-amenities {
+  /* Promotions: a calmer, deeper plum-wine tone than before. */
+  .mct-promotions {
+    background:
+      radial-gradient(circle at 90% 10%, rgba(205, 147, 151, .055), transparent 36%),
+      linear-gradient(145deg, #50313a 0%, #442932 100%) !important;
+  }
+
+  .mct-promotion-card {
+    background: linear-gradient(150deg, #64414a 0%, #573640 100%) !important;
+  }
+
+  .mct-promotion-benefit {
+    color: #211518 !important;
+  }
+
+  .mct-promotion-copy a {
+    color: #fff7f3 !important;
+    opacity: 1 !important;
+  }
+
+  /* About card stays lighter than the section; amenities gets its own deeper surface. */
+  .mct-about-card {
     background: linear-gradient(150deg, #694a53 0%, #5a3c45 100%) !important;
     border-color: rgba(255, 239, 234, .17) !important;
+  }
+
+  .mct-amenities {
+    background: linear-gradient(150deg, #5b3b44 0%, #4e3039 100%) !important;
+    border-color: rgba(255, 239, 234, .16) !important;
   }
 
   .mct-about-experience {
