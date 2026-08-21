@@ -15,10 +15,6 @@ concurrency:
   group: claytone-black-pages
   cancel-in-progress: true
 
-env:
-  SOURCE_REPOSITORY: ichAEY/claytone-current
-  SOURCE_COMMIT: ce1bd42b44e76e1851af9e069c4cbcf06fc8eac2
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,37 +22,25 @@ jobs:
       - name: Checkout ClayTone Black
         uses: actions/checkout@v4
 
-      - name: Checkout current Nonna production source
-        run: |
-          git clone --no-tags https://github.com/${SOURCE_REPOSITORY}.git site
-          cd site
-          git checkout ${SOURCE_COMMIT}
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: site/package-lock.json
 
-      - name: Install production dependencies
-        working-directory: site
+      - name: Install dependencies
         run: npm ci
 
-      - name: Apply current centralized Nonna data
-        working-directory: site
+      - name: Apply centralized Nonna data
         run: node scripts/generate-site.mjs
 
-      - name: Apply ClayTone Black theme
-        run: |
-          cp dark-theme.css site/app/dark-theme.css
-          node scripts/prepare-site.mjs site
+      - name: Prepare dark project Pages build
+        run: node scripts/prepare-site.mjs .
 
       - name: Remove stale exported Next assets
-        run: rm -rf site/public/_next
+        run: rm -rf public/_next
 
       - name: Ignore hosting-only TypeScript files
-        working-directory: site
         run: |
           node - <<'NODE'
           const fs = require('fs');
@@ -76,7 +60,6 @@ jobs:
           NODE
 
       - name: Build static dark site
-        working-directory: site
         run: npx next build
 
       - name: Upload build output for inspection
@@ -84,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: claytone-black-preview
-          path: site/out
+          path: out
           retention-days: 3
 
       - name: Setup Pages
@@ -95,7 +78,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site/out
+          path: out
 
   deploy:
     if: github.event_name != 'pull_request'
