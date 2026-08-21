@@ -21,6 +21,7 @@ let layoutChanged = false;
 
 const darkImport = 'import "./dark-theme.css";';
 const polishImport = 'import "./dark-theme-polish.css";';
+const finalImport = 'import "./dark-theme-final.css";';
 
 if (!layout.includes(darkImport)) {
   const anchor = 'import "./android-scroll-safety.css";';
@@ -39,6 +40,17 @@ if (!layout.includes(polishImport)) {
   layoutChanged = true;
 }
 
+if (!layout.includes(finalImport)) {
+  if (layout.includes(polishImport)) {
+    layout = layout.replace(polishImport, `${polishImport}\n${finalImport}`);
+  } else if (layout.includes(darkImport)) {
+    layout = layout.replace(darkImport, `${darkImport}\n${finalImport}`);
+  } else {
+    throw new Error("Could not find ClayTone dark theme imports in app/layout.tsx");
+  }
+  layoutChanged = true;
+}
+
 if (layoutChanged) fs.writeFileSync(layoutPath, layout);
 
 const nextConfigPath = path.join(siteDir, "next.config.ts");
@@ -51,10 +63,14 @@ if (basePath) {
 
   walk(appDir, (filePath) => {
     if (!textExtensions.has(path.extname(filePath))) return;
-    if (filePath.endsWith("dark-theme.css") || filePath.endsWith("dark-theme-polish.css")) return;
+    if (
+      filePath.endsWith("dark-theme.css") ||
+      filePath.endsWith("dark-theme-polish.css") ||
+      filePath.endsWith("dark-theme-final.css")
+    ) return;
 
     const original = fs.readFileSync(filePath, "utf8");
-    let updated = original
+    const updated = original
       .replace(/(["'`])\/assets\//g, `$1${basePath}/assets/`)
       .replace(/url\((['"]?)\/assets\//g, `url($1${basePath}/assets/`);
 
