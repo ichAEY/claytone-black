@@ -1,0 +1,364 @@
+/* ClayTone final visual polish
+ * Keeps the accepted dark-wine identity, but adds light, separation and fixes
+ * the remaining light-theme surfaces on desktop and mobile.
+ */
+
+/* ---------- Shared contrast / readability ---------- */
+html,
+body,
+.mct-mobile {
+  font-synthesis: none;
+}
+
+.mct-service-description,
+.dct-service-description {
+  color: #e0cbc7 !important;
+  opacity: 1 !important;
+}
+
+.mct-service-action b {
+  text-shadow: 0 0 18px rgba(240, 188, 179, .12) !important;
+}
+
+.mct-prices.is-visible .mct-service-action b {
+  background: linear-gradient(105deg,
+    #efbdb5 0 38%,
+    #ffd7cf 44%,
+    #fff0e9 50%,
+    #ffd7cf 56%,
+    #efbdb5 62% 100%) !important;
+  background-position: var(--mct-price-shine-position) 50% !important;
+  background-size: 245% 100% !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+/* Promotion benefit pills were still using the old brown light-theme color. */
+.mct-promotion-benefit {
+  border: 1px solid rgba(255, 244, 240, .24) !important;
+  background: linear-gradient(135deg, #e2b4ae 0%, #ca918d 100%) !important;
+  color: #47272f !important;
+  box-shadow: 0 8px 20px rgba(45, 22, 28, .14), 0 1px 0 rgba(255,255,255,.20) inset !important;
+}
+
+/* About card: the original production card still had a pale translucent fill. */
+.mct-about-card {
+  border-color: rgba(245, 236, 232, .17) !important;
+  background: linear-gradient(155deg, #55363f 0%, #432a32 100%) !important;
+  box-shadow: 0 18px 42px rgba(38, 18, 25, .18), 0 1px 0 rgba(255,255,255,.035) inset !important;
+}
+
+.mct-about-copy {
+  background: transparent !important;
+}
+
+.mct-about-copy > .mct-about-lead {
+  color: #f1d9d4 !important;
+}
+
+.mct-about-copy > p:not(.mct-about-lead) {
+  color: #d8c4c0 !important;
+}
+
+/* Reviews need a clearer surface-to-card step. */
+.mct-review-summary {
+  border: 1px solid rgba(245, 236, 232, .18) !important;
+  background: #69454e !important;
+  box-shadow: 0 12px 28px rgba(39, 19, 26, .14) !important;
+}
+
+.mct-review-card {
+  border: 1px solid rgba(255, 240, 235, .17) !important;
+  background: linear-gradient(155deg, #754f59 0%, #68434c 100%) !important;
+  box-shadow: 0 14px 30px rgba(39, 19, 26, .16), 0 1px 0 rgba(255,255,255,.035) inset !important;
+}
+
+.mct-review-card blockquote,
+.mct-review-card strong,
+.mct-review-card p {
+  color: #fff1ed !important;
+}
+
+.mct-review-card small,
+.mct-review-card i,
+.mct-review-card span {
+  color: #dfc7c2 !important;
+}
+
+/* Booking/contact frames: restore visible structure without making them bright. */
+.mct-final-secondary,
+.mct-final-contact-grid a {
+  border: 1px solid rgba(248, 229, 224, .27) !important;
+  background: rgba(92, 56, 66, .68) !important;
+  box-shadow: 0 10px 24px rgba(37, 18, 24, .13), 0 1px 0 rgba(255,255,255,.035) inset !important;
+}
+
+.mct-final-secondary:hover,
+.mct-final-contact-grid a:hover {
+  border-color: rgba(248, 229, 224, .38) !important;
+  background: rgba(105, 65, 76, .78) !important;
+}
+
+.mct-contact-copy strong {
+  color: #fff0ec !important;
+}
+
+.mct-contact-copy small {
+  color: #d8c1bd !important;
+}
+
+.mct-visit-details,
+.mct-visit-address {
+  background: transparent !important;
+}
+
+.mct-visit-details {
+  border-color: rgba(245, 236, 232, .14) !important;
+}
+
+.mct-visit-address {
+  color: #f5e5e1 !important;
+}
+
+.mct-visit-address span {
+  color: #cdb7b3 !important;
+}
+
+/* ---------- Mobile residual light surfaces ---------- */
+@media (max-width: 767px) {
+  /* The before/after rail had its own beige surface variable. */
+  .mct-ba-stage {
+    --mct-ba-surface: #3d272e !important;
+    background: #3d272e !important;
+  }
+
+  .mct-ba-swiper,
+  .mct-ba-card,
+  .mct-ba-pagination {
+    background: var(--mct-ba-surface) !important;
+  }
+
+  #mobile-portfolio {
+    background:
+      radial-gradient(circle at 9% 0%, rgba(190, 126, 127, .12), transparent 30%),
+      #3a252c !important;
+  }
+
+  /* Promotions had an independent #eee9e4 scrolling rail. */
+  .mct-promotion-list {
+    background: #4b2e36 !important;
+  }
+
+  .mct-promotion-card,
+  .mct-promotion-card figure,
+  .mct-promotion-copy {
+    background-color: #5a3740 !important;
+  }
+
+  /* Ensure the palette animation never sits on a pale production surface. */
+  .mct-hero-visual,
+  .mct-palette-stage,
+  .mct-palette-set,
+  .mct-palette-stick {
+    background: transparent !important;
+  }
+
+  .mct-about-card {
+    background: linear-gradient(155deg, #51333c 0%, #442b32 100%) !important;
+  }
+
+  .mct-about-copy {
+    border-top-color: rgba(245, 236, 232, .13) !important;
+  }
+
+  .mct-about-list li {
+    border-top-color: rgba(245, 236, 232, .14) !important;
+    color: #eadbd7 !important;
+  }
+
+  .mct-reviews {
+    background:
+      radial-gradient(circle at 92% 0%, rgba(235, 177, 169, .10), transparent 34%),
+      #563740 !important;
+  }
+
+  .mct-review-summary {
+    background: #66424b !important;
+  }
+
+  .mct-review-card {
+    background: linear-gradient(155deg, #704a54 0%, #64414a 100%) !important;
+  }
+
+  .mct-visit-booking {
+    border: 1px solid rgba(245, 236, 232, .16) !important;
+    border-radius: 22px !important;
+    background: rgba(76, 47, 56, .44) !important;
+    padding: 18px 16px 16px !important;
+    box-shadow: 0 14px 30px rgba(37, 18, 24, .12) !important;
+  }
+
+  .mct-final-contact-grid {
+    gap: 9px !important;
+  }
+
+  .mct-final-secondary {
+    border-radius: 16px !important;
+    border-color: rgba(248, 229, 224, .29) !important;
+  }
+
+  .mct-visit-details {
+    margin-top: 18px !important;
+    padding-top: 18px !important;
+    background: transparent !important;
+  }
+
+  .mct-visit .mct-map-wrap {
+    border-color: rgba(245, 236, 232, .13) !important;
+    background: #49333a !important;
+  }
+
+  .mct-visit .mct-map-wrap iframe {
+    filter: saturate(.62) sepia(.06) contrast(.98) brightness(.86) !important;
+  }
+
+  /* Keep the loading word stable: no visible letter-spacing morph. */
+  .mct-intro-mark span {
+    letter-spacing: -.045em !important;
+    animation-name: ctMobileIntroStable !important;
+  }
+
+  @keyframes ctMobileIntroStable {
+    0% { opacity: 0; transform: translateY(8px); }
+    45%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Prevent the dynamic opening-hours label from pushing nearby text on hydration. */
+  .mct-open-status {
+    min-width: 126px !important;
+    justify-content: center !important;
+  }
+}
+
+/* ---------- Desktop: same palette, less gloom ---------- */
+@media (min-width: 768px) {
+  /* Portfolio is intentionally lifted the most; this was the darkest block. */
+  #mobile-portfolio,
+  .mct-section#mobile-portfolio {
+    background:
+      radial-gradient(circle at 7% 10%, rgba(232, 175, 166, .18), transparent 27%),
+      radial-gradient(circle at 92% 92%, rgba(124, 76, 88, .18), transparent 34%),
+      linear-gradient(145deg, #4a3038 0%, #402831 100%) !important;
+  }
+
+  #mobile-portfolio .mct-ba-stage {
+    --mct-ba-surface: #4a3038 !important;
+    background: #4a3038 !important;
+  }
+
+  #mobile-portfolio .mct-ba-swiper,
+  #mobile-portfolio .mct-ba-pagination {
+    background: var(--mct-ba-surface) !important;
+  }
+
+  .mct-ba-card,
+  .mct-work-card,
+  .dct-film-frame,
+  .dct-gallery-module .dct-film-frame {
+    border-color: rgba(255, 235, 230, .18) !important;
+    background: #5b3a43 !important;
+    box-shadow: 0 20px 44px rgba(39, 19, 26, .20), 0 1px 0 rgba(255,255,255,.035) inset !important;
+  }
+
+  /* Prices: stronger left glow, lighter surface, readable descriptions/prices. */
+  .mct-prices {
+    background:
+      radial-gradient(circle at -4% 24%, rgba(246, 196, 186, .28), transparent 31%),
+      radial-gradient(circle at 12% 88%, rgba(178, 116, 124, .18), transparent 32%),
+      linear-gradient(180deg, #493039 0%, #402831 100%) !important;
+  }
+
+  .mct-service-list {
+    background: rgba(91, 57, 67, .18) !important;
+    border-color: rgba(245, 236, 232, .15) !important;
+  }
+
+  .mct-service-row:hover {
+    background: rgba(181, 116, 126, .12) !important;
+  }
+
+  .dct-service-description,
+  .mct-service-description {
+    color: #e5cfca !important;
+  }
+
+  .mct-service-action b {
+    filter: drop-shadow(0 0 9px rgba(242, 190, 180, .12));
+  }
+
+  .mct-promotions {
+    background:
+      radial-gradient(circle at 91% 8%, rgba(240, 187, 177, .14), transparent 29%),
+      linear-gradient(145deg, #5a3942 0%, #4e3039 100%) !important;
+  }
+
+  .mct-promotion-list {
+    background: transparent !important;
+  }
+
+  .mct-promotion-card {
+    background: linear-gradient(155deg, #68434c 0%, #5d3a44 100%) !important;
+    border-color: rgba(255, 236, 231, .18) !important;
+    box-shadow: 0 20px 44px rgba(39, 19, 26, .17) !important;
+  }
+
+  .mct-about {
+    background:
+      radial-gradient(circle at 91% 4%, rgba(236, 180, 171, .13), transparent 30%),
+      linear-gradient(180deg, #472e36 0%, #402831 100%) !important;
+  }
+
+  .mct-about-card {
+    background: linear-gradient(155deg, #5c3b44 0%, #4d3039 100%) !important;
+    box-shadow: 0 22px 48px rgba(38, 18, 25, .18), 0 1px 0 rgba(255,255,255,.04) inset !important;
+  }
+
+  .mct-about-copy > .mct-about-lead {
+    color: #f0d3cd !important;
+  }
+
+  .mct-reviews {
+    background:
+      radial-gradient(circle at 8% 100%, rgba(239, 187, 178, .14), transparent 32%),
+      linear-gradient(145deg, #5b3b43 0%, #50323b 100%) !important;
+  }
+
+  .mct-review-summary {
+    background: #6b4650 !important;
+  }
+
+  .mct-review-card {
+    background: linear-gradient(155deg, #76505a 0%, #69454f 100%) !important;
+    border-color: rgba(255, 239, 234, .19) !important;
+  }
+
+  .mct-visit {
+    background:
+      radial-gradient(circle at 94% 0%, rgba(232, 175, 166, .14), transparent 31%),
+      linear-gradient(180deg, #3d272e 0%, #342129 100%) !important;
+  }
+
+  .mct-visit-booking {
+    background: rgba(84, 52, 61, .48) !important;
+    border-color: rgba(245, 236, 232, .16) !important;
+    box-shadow: 0 18px 40px rgba(38, 18, 25, .14) !important;
+  }
+
+  .mct-visit-details {
+    background: transparent !important;
+  }
+
+  .mct-visit .mct-map-wrap iframe {
+    filter: saturate(.64) sepia(.05) contrast(.98) brightness(.88) !important;
+  }
+}
