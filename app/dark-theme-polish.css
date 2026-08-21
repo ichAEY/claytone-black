@@ -1,0 +1,216 @@
+/* Final ClayTone dark-wine cleanup.
+ * Loaded after all production CSS and dark-theme.css so no cream/light surfaces
+ * from the original light site can leak into the dark variant.
+ */
+
+/* Prices / tabs */
+.mct-tabs {
+  border: 1px solid rgba(245, 236, 232, .10) !important;
+  background: #2f1d23 !important;
+}
+
+.mct-tab {
+  color: #c9b5b1 !important;
+  background: transparent !important;
+}
+
+.mct-tab.is-active {
+  background: #68444b !important;
+  color: #f7eeeb !important;
+  box-shadow: 0 5px 16px rgba(39, 20, 26, .16) !important;
+}
+
+.mct-more-services {
+  border-color: rgba(245, 236, 232, .14) !important;
+  background: #472c34 !important;
+  color: #ead9d5 !important;
+  box-shadow: none !important;
+}
+
+.mct-service-action a {
+  color: #d9aaa4 !important;
+}
+
+/* About: remove the last pale pills and dark text from the light theme. */
+.mct-about-experience {
+  border-color: rgba(245, 236, 232, .16) !important;
+  background: #5a3740 !important;
+  box-shadow: 0 12px 28px rgba(39, 20, 26, .14) !important;
+}
+
+.mct-about-experience strong {
+  color: #f7eeeb !important;
+}
+
+.mct-about-experience span,
+.mct-amenities-head > span {
+  color: #c9b5b1 !important;
+}
+
+.mct-about-copy > p {
+  color: #cdbab6 !important;
+}
+
+.mct-about-copy > .mct-about-lead {
+  color: #f0e3df !important;
+}
+
+.mct-amenities-head .mct-section-kicker {
+  color: transparent !important;
+  background: linear-gradient(105deg, #c9908b 0 42%, #edc8c1 49%, #ddb0aa 52%, #c9908b 59% 100%) !important;
+  background-position: 130% 50% !important;
+  background-size: 260% 100% !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+/* Reviews: the original cards/snapshot had light backgrounds and dark copy. */
+.mct-review-summary {
+  background: #603d45 !important;
+  color: #f7eeeb !important;
+  box-shadow: 0 10px 24px rgba(39, 20, 26, .12) !important;
+}
+
+.mct-review-card > span {
+  color: #efc3bc !important;
+}
+
+.mct-review-card blockquote {
+  color: #f7eeeb !important;
+}
+
+.mct-review-card small,
+.mct-review-card i {
+  color: #ccb8b4 !important;
+}
+
+/* Legacy location layer: kept dark in case it is rendered by an older viewport. */
+.mct-location {
+  border-color: rgba(245, 236, 232, .12) !important;
+  background: #342128 !important;
+  color: #f5ece8 !important;
+}
+
+.mct-location h2,
+.mct-location-address {
+  color: #f5ece8 !important;
+}
+
+.mct-location-address span {
+  color: #bfa9a6 !important;
+}
+
+.mct-location-actions a {
+  border-color: rgba(245, 236, 232, .14) !important;
+  background: #4a2e36 !important;
+  color: #ead9d5 !important;
+}
+
+.mct-location-actions a:first-child {
+  background: #d6a39d !important;
+  color: #482831 !important;
+}
+
+.mct-location .mct-map-wrap {
+  border-color: rgba(245, 236, 232, .12) !important;
+  background: #493138 !important;
+}
+
+.mct-location .mct-map-wrap > a {
+  border-color: rgba(245, 236, 232, .22) !important;
+  background: #5b3942 !important;
+  color: #f2e5e1 !important;
+}
+
+/* Final / visit controls */
+.mct-final-book {
+  background:
+    radial-gradient(circle at 95% 0%, rgba(214, 163, 157, .12), transparent 34%),
+    linear-gradient(155deg, #3c252d 0%, #2d1b21 100%) !important;
+}
+
+.mct-final-cta .mct-link-arrow {
+  background: #57323b !important;
+  color: #f5ece8 !important;
+}
+
+.mct-final-secondary {
+  border-color: rgba(245, 236, 232, .16) !important;
+  background: #472c34 !important;
+  color: #f2e6e2 !important;
+}
+
+.mct-final-secondary > .mct-link-arrow,
+.mct-link-arrow {
+  background: rgba(235, 195, 188, .13) !important;
+  color: #e7c4bd !important;
+}
+
+.mct-visit .mct-map-wrap {
+  background: #49353a !important;
+}
+
+.mct-visit .mct-map-wrap > a {
+  border-color: rgba(245, 236, 232, .22) !important;
+  background: #d7aaa3 !important;
+  color: #45262f !important;
+}
+
+/* Sticky booking CTA */
+.mct-sticky {
+  border-color: rgba(245, 236, 232, .20) !important;
+  background: rgba(90, 55, 64, .97) !important;
+  color: #fff4f0 !important;
+  box-shadow: 0 14px 34px rgba(39, 20, 26, .22) !important;
+}
+
+.mct-sticky-icon,
+.dct-sticky-live {
+  background: rgba(235, 195, 188, .14) !important;
+}
+
+.mct-sticky-copy small {
+  color: #d6c1bd !important;
+}
+
+.mct-sticky-arrow {
+  background: #ead0ca !important;
+  color: #482831 !important;
+}
+
+/* Full gallery: dark wine canvas, not the original cream page. */
+.mct-gallery-overlay {
+  background: #2d1b21 !important;
+  color: #f5ece8 !important;
+}
+
+.mct-gallery-top {
+  border-color: rgba(245, 236, 232, .12) !important;
+  background: rgba(53, 32, 39, .94) !important;
+  color: #f5ece8 !important;
+}
+
+.mct-gallery-close {
+  border-color: rgba(245, 236, 232, .18) !important;
+  background: #5a3740 !important;
+  color: #f7eeeb !important;
+}
+
+.mct-gallery-content h3 {
+  color: #d7aaa3 !important;
+}
+
+.mct-gallery-ba-card {
+  background: #493039 !important;
+}
+
+.mct-lightbox,
+.mct-custom-lightbox {
+  background: rgba(45, 27, 33, .97) !important;
+}
+
+/* Keep browser selection in the same wine family. */
+::selection {
+  background: #8a5963 !important;
+  color: #fff7f3 !important;
+}
