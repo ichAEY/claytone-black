@@ -1,0 +1,223 @@
+/* Final screenshot-driven cleanup for ClayTone dark-wine theme. */
+
+/* Shared: remove the broken map/iframe surface above the footer. */
+.mct-visit .mct-map-wrap {
+  display: none !important;
+}
+
+/* Shared: about-card and amenities should read as intentional inner surfaces. */
+.mct-about-card,
+.mct-amenities {
+  border: 1px solid rgba(255, 239, 234, .16) !important;
+  background: linear-gradient(150deg, #674852 0%, #583a43 100%) !important;
+  box-shadow: none !important;
+}
+
+.mct-about-copy {
+  background: transparent !important;
+}
+
+.mct-about-copy > .mct-about-lead {
+  color: #f6e1dc !important;
+}
+
+.mct-about-copy > p:not(.mct-about-lead),
+.mct-amenities-grid span,
+.mct-amenities-head > span {
+  color: #dcc9c5 !important;
+}
+
+.mct-amenities-grid strong {
+  color: #fff1ed !important;
+}
+
+/* Reviews: clearer, less muddy cards. */
+.mct-reviews {
+  background: linear-gradient(145deg, #573942 0%, #4e323a 100%) !important;
+}
+
+.mct-review-summary {
+  border-color: rgba(255, 240, 235, .18) !important;
+  background: #6b4a52 !important;
+  box-shadow: none !important;
+}
+
+.mct-review-card {
+  border-color: rgba(255, 244, 240, .20) !important;
+  background: linear-gradient(150deg, #76545c 0%, #68474f 100%) !important;
+  box-shadow: none !important;
+}
+
+.mct-review-card blockquote {
+  color: #fff7f4 !important;
+}
+
+.mct-review-card small,
+.mct-review-card i {
+  color: #ead8d3 !important;
+}
+
+.mct-review-card > span {
+  color: #f4c8c0 !important;
+}
+
+/* Mobile promotions: no light strip under the carousel; action is clearly visible. */
+@media (max-width: 767px) {
+  .mct-promotions,
+  .mct-promotions .mct-shell,
+  .mct-promotion-pagination {
+    background: transparent !important;
+  }
+
+  .mct-promotions {
+    background: linear-gradient(145deg, #5a3942 0%, #4d3039 100%) !important;
+  }
+
+  .mct-promotion-list {
+    background: transparent !important;
+  }
+
+  .mct-promotion-copy a {
+    color: #fff7f3 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+  }
+
+  .mct-promotion-pagination {
+    padding-top: 16px !important;
+    padding-bottom: 2px !important;
+    border: 0 !important;
+  }
+
+  .mct-promotion-pagination button {
+    background: rgba(244, 211, 204, .48) !important;
+    opacity: 1 !important;
+  }
+
+  .mct-promotion-pagination button.is-active {
+    background: #efc2ba !important;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.06) !important;
+  }
+
+  /* Keep the inner about/amenities surfaces distinct on phone too. */
+  .mct-about-card,
+  .mct-amenities {
+    background: linear-gradient(150deg, #62444d 0%, #543840 100%) !important;
+  }
+
+  .mct-about-experience {
+    background: #74515a !important;
+    border-color: rgba(255, 239, 234, .18) !important;
+  }
+
+  /* Booking/contact frames stay intact and the address section has no pale panel. */
+  .mct-visit-booking {
+    border-color: rgba(255, 239, 234, .20) !important;
+    background: rgba(86, 54, 63, .46) !important;
+  }
+
+  .mct-final-secondary {
+    border-color: rgba(255, 239, 234, .28) !important;
+    background: rgba(101, 63, 73, .68) !important;
+  }
+
+  .mct-visit-details,
+  .mct-visit-address {
+    background: transparent !important;
+  }
+}
+
+/* Desktop-specific cleanup. */
+@media (min-width: 768px) {
+  /* Top row: left brand remains light; controls over the bright portrait become dark. */
+  .dct-navigation a,
+  .dct-top-phone,
+  .dct-top-phone small,
+  .dct-top-phone strong,
+  .dct-top-icon {
+    color: #281c20 !important;
+  }
+
+  .dct-top-phone svg,
+  .dct-top-icon svg {
+    stroke: currentColor !important;
+  }
+
+  /* Keep portfolio background, remove the heavy shadows introduced in the previous pass. */
+  #mobile-portfolio,
+  .mct-section#mobile-portfolio {
+    background:
+      radial-gradient(circle at 7% 10%, rgba(232, 175, 166, .12), transparent 32%),
+      linear-gradient(145deg, #4a3038 0%, #402831 100%) !important;
+  }
+
+  .mct-ba-card,
+  .mct-work-card,
+  .dct-film-frame,
+  .dct-gallery-module .dct-film-frame,
+  .dct-gallery-module .dct-film-frame-1,
+  .dct-gallery-module .dct-film-frame-2,
+  .dct-gallery-module .dct-film-frame-3,
+  .dct-gallery-module .dct-film-frame-4,
+  .dct-gallery-module .dct-film-frame-5 {
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  /* Services/prices: subtle light only; one continuous surface throughout the list. */
+  .mct-prices {
+    background:
+      radial-gradient(circle at -6% 26%, rgba(246, 196, 186, .12), transparent 42%),
+      linear-gradient(180deg, #493039 0%, #402831 100%) !important;
+  }
+
+  .mct-service-list,
+  .mct-service-row,
+  .mct-service-row:hover {
+    background: transparent !important;
+  }
+
+  .mct-service-list {
+    border-color: rgba(245, 236, 232, .12) !important;
+  }
+
+  .mct-service-row {
+    border-color: rgba(245, 236, 232, .10) !important;
+  }
+
+  .dct-service-description,
+  .mct-service-description {
+    color: #ead8d3 !important;
+  }
+
+  .mct-service-action b {
+    filter: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Inner surfaces in About are deliberately different from the section background. */
+  .mct-about-card,
+  .mct-amenities {
+    background: linear-gradient(150deg, #694a53 0%, #5a3c45 100%) !important;
+    border-color: rgba(255, 239, 234, .17) !important;
+  }
+
+  .mct-about-experience {
+    background: #75525b !important;
+    border-color: rgba(255, 239, 234, .18) !important;
+  }
+
+  /* Reviews: brighter cards with cleaner separation, no oversized shadow. */
+  .mct-review-summary,
+  .mct-review-card {
+    box-shadow: none !important;
+  }
+
+  .mct-review-summary {
+    background: #6c4b53 !important;
+  }
+
+  .mct-review-card {
+    background: linear-gradient(150deg, #795861 0%, #6c4a53 100%) !important;
+  }
+}
