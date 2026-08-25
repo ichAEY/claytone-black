@@ -35,6 +35,8 @@ jobs:
         run: node scripts/generate-site.mjs
 
       - name: Prepare dark project Pages build
+        env:
+          CLAYTONE_CUSTOM_DOMAIN: "true"
         run: node scripts/prepare-site.mjs .
 
       - name: Remove stale exported Next assets
